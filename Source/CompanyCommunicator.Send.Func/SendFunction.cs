@@ -291,7 +291,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             // replacing id and key for read tracking purposes
             jsonAC = jsonAC.Replace("[ID]", message.NotificationId);
             jsonAC = jsonAC.Replace("[KEY]", message.RecipientData.RecipientId);
-            log.LogInformation(jsonAC);
+            // log.LogInformation(jsonAC);
+            log.LogInformation("Här kommer message" + message);
             jsonAC = this.GetButtonTrackingUrl(jsonAC, message.NotificationId, message.RecipientData.RecipientId);
 
             var adaptiveCardAttachment = new Attachment()
