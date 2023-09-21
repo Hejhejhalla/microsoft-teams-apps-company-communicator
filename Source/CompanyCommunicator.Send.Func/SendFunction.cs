@@ -292,7 +292,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             jsonAC = jsonAC.Replace("[ID]", message.NotificationId);
             jsonAC = jsonAC.Replace("[KEY]", message.RecipientData.RecipientId);
             // log.LogInformation(jsonAC);
-            log.LogInformation("Här kommer message" + message.Summary);
+            log.LogInformation("Här kommer message" + message.Summary.Value);
+            log.LogInformation("Här kommer message" + message.Value);
+            log.LogInformation("Här kommer message" + message.Text);
+            log.LogInformation("Här kommer message" + message.Id);
             jsonAC = this.GetButtonTrackingUrl(jsonAC, message.NotificationId, message.RecipientData.RecipientId);
 
             var adaptiveCardAttachment = new Attachment()
