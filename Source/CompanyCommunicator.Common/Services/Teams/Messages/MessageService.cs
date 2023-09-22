@@ -94,7 +94,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
                         // await policy.ExecuteAsync(async () => await turnContext.SendActivityAsync(message));
                         await policy.ExecuteAsync(async () =>
                         {
-                        message.Text = "Albin och Thomas testar";
+                        //message.Text = "Albin och Thomas testar";
                             var resp = await turnContext.SendActivityAsync(message);
                             response.ActivityId = resp.Id;
                         });
