@@ -295,14 +295,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             var adaptiveCardAttachment = new Attachment()
             {
                 ContentType = AdaptiveCardContentType,
-                Content = JsonConvert.DeserializeObject(jsonAC),
+                Content = JsonConvert.DeserializeObject(notification.Content),
             };
-            
-            var response123 = MessageFactory.Text(string.Empty);
-            response123.Attachments.Add(adaptiveCardAttachment);
-            response123.Summary = "showing custom greeeting from the Bot - rather than a card";
-            
-            return response123;
+
+            return MessageFactory.Attachment(adaptiveCardAttachment);
         }
 
         private string GetButtonTrackingUrl(string notification, string notificationId, string key)
