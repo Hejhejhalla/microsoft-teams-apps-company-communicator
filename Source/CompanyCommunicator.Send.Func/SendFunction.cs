@@ -287,10 +287,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                 log.LogInformation($"Successfully cached the sent card data." +
                                 $"\nNotificationId Id: {message.NotificationId}");
             }
-            log.LogInformation("Här kommer message 1" + message.Summary.Value);
-            log.LogInformation("Här kommer message 2" + message.Value);
-            log.LogInformation("Här kommer message 3" + message.Text);
-            log.LogInformation("Här kommer message 4" + message.Id);
             // replacing id and key for read tracking purposes
             jsonAC = jsonAC.Replace("[ID]", message.NotificationId);
             jsonAC = jsonAC.Replace("[KEY]", message.RecipientData.RecipientId);
