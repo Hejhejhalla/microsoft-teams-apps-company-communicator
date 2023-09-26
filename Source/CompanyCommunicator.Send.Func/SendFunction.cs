@@ -297,9 +297,12 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                 ContentType = AdaptiveCardContentType,
                 Content = JsonConvert.DeserializeObject(jsonAC),
             };
-            log.LogInformation("Här är jsonAC.Content  " + adaptiveCardAttachment.Content);
-            log.LogInformation("Här är jsonAC  " + jsonAC);
-            return MessageFactory.Attachment(adaptiveCardAttachment);
+            
+            var response123 = MessageFactory.Text(string.Empty);
+            response123.Attachments.Add(adaptiveCardAttachment);
+            response123.Summary = "showing custom greeeting from the Bot - rather than a card";
+            
+            return response123;
         }
 
         private string GetButtonTrackingUrl(string notification, string notificationId, string key)
