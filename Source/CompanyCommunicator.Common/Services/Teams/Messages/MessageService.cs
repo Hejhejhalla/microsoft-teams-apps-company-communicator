@@ -10,6 +10,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Bot.Schema;
+    using Microsoft.Bot.Builder;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter;
@@ -95,8 +96,8 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
                         await policy.ExecuteAsync(async () =>
                         {
 
-                        var response123 = MessageFactory.Text(string.Empty);
-                        response123.Summary = "showing custom greeeting from the Bot - rather than a card";
+                            var response123 = MessageFactory.Text(string.Empty);
+                            response123.Summary = "showing custom greeeting from the Bot - rather than a card";
                             
                             var resp = await turnContext.SendActivityAsync(response123);
                             response.ActivityId = resp.Id;
