@@ -297,7 +297,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                 ContentType = AdaptiveCardContentType,
                 Content = JsonConvert.DeserializeObject(jsonAC),
             };
-
+            log.LogInformation("Här är jsonAC  " + jsonAC);
             return MessageFactory.Attachment(adaptiveCardAttachment);
         }
 
