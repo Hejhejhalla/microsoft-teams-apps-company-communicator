@@ -291,7 +291,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             jsonAC = jsonAC.Replace("[ID]", message.NotificationId);
             jsonAC = jsonAC.Replace("[KEY]", message.RecipientData.RecipientId);
             jsonAC = this.GetButtonTrackingUrl(jsonAC, message.NotificationId, message.RecipientData.RecipientId);
-            this.messagetitle = this.GetMessageTitle(jsonAC);
             var adaptiveCardAttachment = new Attachment()
             {
                 ContentType = AdaptiveCardContentType,
