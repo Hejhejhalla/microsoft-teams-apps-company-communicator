@@ -94,8 +94,11 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
                         // await policy.ExecuteAsync(async () => await turnContext.SendActivityAsync(message));
                         await policy.ExecuteAsync(async () =>
                         {
-                            message.Text = message.Summary;
-                            var resp = await turnContext.SendActivityAsync(message);
+
+                        var response123 = MessageFactory.Text(string.Empty);
+                        response123.Summary = "showing custom greeeting from the Bot - rather than a card";
+                            
+                            var resp = await turnContext.SendActivityAsync(response123);
                             response.ActivityId = resp.Id;
                         });
 
