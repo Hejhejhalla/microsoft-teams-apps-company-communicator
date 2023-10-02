@@ -65,6 +65,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
                 {
                     return new SendQueueMessageContent()
                     {
+                        Summary = input.Summary,
                         NotificationId = input.notificationId,
                         IsImportant = isImportant,
                         RecipientData = this.ConvertToRecipientData(recipient),
