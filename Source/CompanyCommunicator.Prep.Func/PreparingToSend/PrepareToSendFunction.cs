@@ -68,7 +68,9 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func
                 sentNotificationDataEntity);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+            log.LogInformation(sentNotificationDataEntity);
 
+            
             var httpManagementPayload = starter.CreateHttpManagementPayload(instanceId);
             sentNotificationDataEntity.FunctionInstancePayload = JsonConvert.SerializeObject(httpManagementPayload);
             await this.notificationDataRepository.InsertOrMergeAsync(sentNotificationDataEntity);
