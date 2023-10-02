@@ -179,7 +179,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                     messageActivity.Importance = ActivityImportance.High; // flags the importance flag for the message
                 }
 
-                messageActivity.Summary = this.localizer.GetString("SentMessage");
+                messageActivity.Summary = messageContent.Summary;
 
                 var response = await this.messageService.SendMessageAsync(
                     message: messageActivity,
