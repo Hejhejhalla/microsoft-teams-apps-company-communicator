@@ -68,7 +68,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func
                 sentNotificationDataEntity);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-            log.LogInformation(queueMessageContent.Summary);
 
             
             var httpManagementPayload = starter.CreateHttpManagementPayload(instanceId);
