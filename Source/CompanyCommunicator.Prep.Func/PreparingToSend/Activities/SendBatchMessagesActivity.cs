@@ -9,6 +9,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Extensions.DurableTask;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData;
@@ -59,7 +60,9 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
 
             // checks if the message is important
             var isImportant = await this.IsImportantMessage(input.notificationId);
-
+            
+            log.LogInformation(input);
+            
             var messageBatch = input.batch.Select(
                 recipient =>
                 {
