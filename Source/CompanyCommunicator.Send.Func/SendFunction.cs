@@ -311,7 +311,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
             }
 
             string host = string.Empty;
-
+        
             foreach (var item in result.body)
             {
                 if (item.url != null)
@@ -322,8 +322,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                         break;
                     }
                 }
+                
             }
-
+            log.LogInformation(item);
+            
             if (!string.IsNullOrEmpty(host))
             {
                 var url = host.Split("/api")[0];
