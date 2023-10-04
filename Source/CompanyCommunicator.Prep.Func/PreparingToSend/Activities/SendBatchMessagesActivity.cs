@@ -59,12 +59,14 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
 
             // checks if the message is important
             var isImportant = await this.IsImportantMessage(input.notificationId);
+            var summary = await this.GetSummary(input.notificationId);
             
             var messageBatch = input.batch.Select(
                 recipient =>
                 {
                     return new SendQueueMessageContent()
                     {
+                        Summary = summary;
                         NotificationId = input.notificationId,
                         IsImportant = isImportant,
                         RecipientData = this.ConvertToRecipientData(recipient),
@@ -81,6 +83,15 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.PreparingToSend
             notif = await this.notificationDataRepository.GetAsync(NotificationDataTableNames.SentNotificationsPartition, messageId);
 
             return notif.IsImportant;
+        }
+        
+        private async Task<string> GetSummary(string messageId)
+        {
+            NotificationDataEntity notif1;
+
+            notif1 = await this.notificationDataRepository.GetAsync(NotificationDataTableNames.SentNotificationsPartition, messageId);
+
+            return notif1.Summary;
         }
 
         /// <summary>
