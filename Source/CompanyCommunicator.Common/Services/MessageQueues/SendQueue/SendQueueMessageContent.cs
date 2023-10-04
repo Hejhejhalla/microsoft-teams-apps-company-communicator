@@ -9,12 +9,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues
     /// Azure service bus send queue message content class.
     /// </summary>
     public class SendQueueMessageContent
-    {
-        /// <summary>
-        /// Gets or sets the summary value.
-        /// </summary>
-        public string Albin { get; set; }
-        
+    {        
         /// <summary>
         /// Gets or sets the summary value.
         /// </summary>
