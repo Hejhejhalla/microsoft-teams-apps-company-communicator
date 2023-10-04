@@ -13,6 +13,11 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.MessageQueues
         /// <summary>
         /// Gets or sets the summary value.
         /// </summary>
+        public string Title { get; set; }
+        
+        /// <summary>
+        /// Gets or sets the summary value.
+        /// </summary>
         public string Summary { get; set; }
         
         /// <summary>
