@@ -186,7 +186,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             errorImageUrlMessage: "",
             errorButtonUrlMessage: "",
             selectedSchedule: false, //scheduler option is disabled by default
-            selectedImportant: false, //important flag for the msg is false by default
+            selectedImportant: true, //important flag for the msg is false by default
             scheduledDate: TempDate.toUTCString(), //current date in UTC string format
             DMY: TempDate, //current date in Date format
             DMYHour: this.getDateHour(TempDate.toUTCString()), //initialize with the current hour (rounded up)
