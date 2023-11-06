@@ -324,7 +324,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Send.Func
                 }
                 
             }
-            log.LogInformation(item);
             
             if (!string.IsNullOrEmpty(host))
             {
