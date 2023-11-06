@@ -798,10 +798,11 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                             onCheckedValueChange={this.onGroupSelected}
                                             vertical={true}
                                             items={[
+                                                /*
                                                 {
                                                     name: "teams",
                                                     key: "teams",
-                                                    disabled: true,
+                                                    disabled: (this.targetingEnabled && !isMaster),
                                                     value: "teams",
                                                     label: this.localize("SendToGeneralChannel"),
                                                     children: (Component, { name, ...props }) => {
@@ -830,7 +831,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "rosters",
                                                     key: "rosters",
-                                                    disabled: true,
+                                                    disabled: (this.targetingEnabled && !isMaster),
                                                     value: "rosters",
                                                     label: this.localize("SendToRosters"),
                                                     children: (Component, { name, ...props }) => {
@@ -859,7 +860,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "allUsers",
                                                     key: "allUsers",
-                                                    disabled: true,
+                                                    disabled: (this.targetingEnabled && !isMaster),
                                                     value: "allUsers",
                                                     label: this.localize("SendToAllUsers"),
                                                     children: (Component, { name, ...props }) => {
@@ -875,6 +876,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                         )
                                                     },
                                                 },
+                                                */
                                                 {
                                                     name: "groups",
                                                     key: "groups",
@@ -1023,7 +1025,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 labelPosition="start"
                                                 onClick={this.onImportantSelected}
                                                 label={this.localize("Important")}
-                                                checked={this.state.selectedImportant}
+                                                checked=true
                                                 toggle
                                             /></h3>
                                         </Flex>
