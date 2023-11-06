@@ -1025,7 +1025,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 labelPosition="start"
                                                 onClick={this.onImportantSelected}
                                                 label={this.localize("Important")}
-                                                checked=true
+                                                checked={this.state.selectedImportant}
                                                 toggle
                                             /></h3>
                                         </Flex>
