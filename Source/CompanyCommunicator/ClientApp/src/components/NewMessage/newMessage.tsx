@@ -801,7 +801,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "teams",
                                                     key: "teams",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "teams",
                                                     label: this.localize("SendToGeneralChannel"),
                                                     children: (Component, { name, ...props }) => {
@@ -830,7 +830,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "rosters",
                                                     key: "rosters",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "rosters",
                                                     label: this.localize("SendToRosters"),
                                                     children: (Component, { name, ...props }) => {
@@ -859,7 +859,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "allUsers",
                                                     key: "allUsers",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "allUsers",
                                                     label: this.localize("SendToAllUsers"),
                                                     children: (Component, { name, ...props }) => {
