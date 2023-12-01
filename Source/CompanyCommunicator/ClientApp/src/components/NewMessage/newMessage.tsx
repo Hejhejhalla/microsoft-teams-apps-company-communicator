@@ -20,7 +20,11 @@ import { TFunction } from "i18next";
 import { OpenUrlAction } from 'adaptivecards';
 import { Icon, TooltipHost } from 'office-ui-fabric-react';
 import axios from '../../apis/axiosJWTDecorator';
-let baseAxiosUrl = getBaseUrl() + '/api';
+
+//let baseAxiosUrl = getBaseUrl() + '/api';
+//Temporary fix to bypass Front Door due to the recent changes in the authentication flow that removed
+//authentication headers from all calls to the APIs
+let baseAxiosUrl = getBaseUrl().replace("azurefd", "azurewebsites") + '/api';
 
 //image types valid for the upload
 const validImageTypes = ['image/gif', 'image/jpeg', 'image/png', 'image/jpg'];
@@ -161,10 +165,10 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             btnTitle: "",
             card: this.card,
             page: "CardCreation",
-            teamsOptionSelected: true,
+            teamsOptionSelected: false,
             rostersOptionSelected: false,
             allUsersOptionSelected: false,
-            groupsOptionSelected: false,
+            groupsOptionSelected: true,
             csvOptionSelected: false,
             csvLoaded: "",
             csvfile: "",
@@ -186,7 +190,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
             errorImageUrlMessage: "",
             errorButtonUrlMessage: "",
             selectedSchedule: false, //scheduler option is disabled by default
-            selectedImportant: false, //important flag for the msg is false by default
+            selectedImportant: true, //important flag for the msg is false by default
             scheduledDate: TempDate.toUTCString(), //current date in UTC string format
             DMY: TempDate, //current date in Date format
             DMYHour: this.getDateHour(TempDate.toUTCString()), //initialize with the current hour (rounded up)
@@ -801,7 +805,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "teams",
                                                     key: "teams",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "teams",
                                                     label: this.localize("SendToGeneralChannel"),
                                                     children: (Component, { name, ...props }) => {
@@ -830,7 +834,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "rosters",
                                                     key: "rosters",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "rosters",
                                                     label: this.localize("SendToRosters"),
                                                     children: (Component, { name, ...props }) => {
@@ -859,7 +863,7 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
                                                 {
                                                     name: "allUsers",
                                                     key: "allUsers",
-                                                    disabled: (this.targetingEnabled && !isMaster),
+                                                    disabled: true,
                                                     value: "allUsers",
                                                     label: this.localize("SendToAllUsers"),
                                                     children: (Component, { name, ...props }) => {
