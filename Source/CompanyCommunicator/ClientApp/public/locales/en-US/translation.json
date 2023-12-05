@@ -80,7 +80,7 @@
   "Warnings": "Warnings",
   "SignInPromptMessage": "Please sign in to continue.",
   "SignIn": "Sign in",
-  "UnauthorizedErrorMessage": "Sorry, an error occurred while trying to access this service.......",
+  "UnauthorizedErrorMessage": "Sorry, an error occurred while trying to access this service..",
   "ForbiddenErrorMessage": "Sorry, you do not have permission to access this page. Please contact your administrator to be granted permission.",
   "GeneralErrorMessage": "Ooops! An unexpected error seems to have occured. Why not try refreshing your page? Or you can contact your administrator if the problem persists.",
   "ExportQueueTitle": "Your export is queued",
