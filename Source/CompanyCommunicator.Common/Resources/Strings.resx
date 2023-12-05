@@ -269,7 +269,7 @@
     <value>Button Clicks</value>
   </data>
   <data name="SentMessage" xml:space="preserve">
-    <value>Albin testar lite, du måste tidrapportera idag!</value>
+    <value>Sent Message</value>
   </data>
   <data name="ColumnName_ButtonTracking" xml:space="preserve">
     <value>Button Tracking</value>
